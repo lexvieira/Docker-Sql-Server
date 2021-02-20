@@ -121,7 +121,7 @@ Changed database context to 'MY_DB'.
 1> 
 ```
 
-# CONFIGURE USING DOCKER-COMPOSE
+# CONFIGURE USANDO DOCKER-COMPOSE
 
 1. Criando o *docker-compose.yml"
 ```
