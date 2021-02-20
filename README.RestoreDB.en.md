@@ -1,6 +1,6 @@
 
 # Restore Database 
-([Versão em Português](README.RestoreDB.pt.md) *Version in Portuguese in Development*)
+[Versão em Português](README.RestoreDB.pt.md)
 
 Come back to [Docker SQL Server](README.md)
 
@@ -124,6 +124,8 @@ Now your databases are restored and available on your SQL Server Docker Instance
 
 <img alt="Restored Database" src="imgs/restoreddb.png">
 
+<br/><br/>
+
 # REFERENCES
 
 [Restoring a database on ms sql server for linux docker](https://docs.microsoft.com/en-us/sql/linux/tutorial-restore-backup-in-sql-server-container?view=sql-server-ver15)
@@ -131,5 +133,5 @@ Now your databases are restored and available on your SQL Server Docker Instance
 [RESTORE Statements (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql?view=sql-server-ver15)
 
 ---
-Come back to [Docker SQL Server](README.md)
-See [Versão em Português](README.RestoreDB.pt.md)
+Come back to [Docker SQL Server](README.md)  <br/>
+Or See [Versão em Português](README.RestoreDB.pt.md)

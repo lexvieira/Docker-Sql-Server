@@ -14,7 +14,7 @@ Agora, mãos na massa.
 
 Primeiro, se você não tem o **docker** instalado, por favor instale seguindo as instruções em https://docs.docker.com/get-docker/
 
-# 1 - Configurar o Docker SQL Server [Quick Start](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-2017&pivots=cs1-bash)
+# Configurar o Docker SQL Server [Quick Start](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-2017&pivots=cs1-bash)
 
 Microsoft SQL Server em [Docker Hub](https://hub.docker.com/_/microsoft-mssql-server)
 

@@ -2,11 +2,11 @@
 ---
 
 ### A little explanation about Docker 
-Read this in other languages: [English](README.md), [Portuguese version Soon](README.pt.md).
+Read this in other languages: [English](README.md), [Portuguese version](README.pt.md).
 
 Also
 
-Restoring database inside a docker container [English Restoring](README.RestoreDB.en.md), [Portuguese Restoring Soon](README.RestoreDB.pt.md)
+Restoring database inside a docker container [English Restoring](README.RestoreDB.en.md), [Portuguese Restoring](README.RestoreDB.pt.md)
 
 Imagine that you work or are just learning many different technologies, My case, Guilty!!! or the situation of many of us that use  `NodeJS`, `React`, `C#`, `Ruby`, `PHP` or even `Haskell` (I was using few days ago \o/ or for instance you just want to run some linux commands in your laptop or PC without need to install a  [Virutal Box](https://www.virtualbox.org/) ou [VMWare](https://www.vmware.com/)) Those languages and their IDEs (integrated development environment) consume resources like HD, Memory, Processor and mainly **time***
 
@@ -16,7 +16,7 @@ Now, hands on.
 
 First, if you don't have **docker** installed, please install following the instructions on https://docs.docker.com/get-docker/
 
-# 1 - Configure SQL Server Docker [Quick Start](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-2017&pivots=cs1-bash)
+# Configure SQL Server Docker [Quick Start](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-2017&pivots=cs1-bash)
 
 Microsoft SQL Server on [Docker Hub](https://hub.docker.com/_/microsoft-mssql-server)
 
@@ -250,7 +250,7 @@ On Azure Data Studio is even easier to configure your connections with Microsoft
 # NEXT
 
 ## RESTORE DATABASE INSIDE CONTAINER
-Restoring database using a docker container [English Restoring](README.RestoreDB.en.md), [Portuguese Restoring Soon](README.RestoreDB.pt.md)
+Restoring database using a docker container [English Restoring](README.RestoreDB.en.md), [Portuguese Restoring](README.RestoreDB.pt.md)
 
 ## USE SQL SERVER RETURN TABLES RENDERED AS HTML 
 
