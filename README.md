@@ -1,13 +1,20 @@
 # Using Docker to work with a SQL Server Database without need to install on your computer.
+---
 
 ### A little explanation about Docker 
-Read this in other languages: [English](README.md), [Portuguese version Soon](README.pt.md) 
+Read this in other languages: [English](README.md), [Portuguese version Soon](README.pt.md).
+
+Also
+
+Restoring database inside a docker container [English Restoring](README.RestoreDB.en.md), [Portuguese Restoring Soon](README.RestoreDB.pt.md)
 
 Imagine that you work or are just learning many different technologies, My case, Guilty!!! or the situation of many of us that use  `NodeJS`, `React`, `C#`, `Ruby`, `PHP` or even `Haskell` (I was using few days ago \o/ or for instance you just want to run some linux commands in your laptop or PC without need to install a  [Virutal Box](https://www.virtualbox.org/) ou [VMWare](https://www.vmware.com/)) Those languages and their IDEs (integrated development environment) consume resources like HD, Memory, Processor and mainly **time***
 
 Therefore, we have Docker to have access to an infinite of images of different platforms, that can be instantiated when necessary and can be discarded when no longer needed. For this, the application is on your machine and is accessed through the instantiated container.
 
 Now, hands on.
+
+First, if you don't have **docker** installed, please install following the instructions on https://docs.docker.com/get-docker/
 
 # 1 - Configure SQL Server Docker [Quick Start](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-2017&pivots=cs1-bash)
 
@@ -22,7 +29,7 @@ sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YOUR_PASSWORD" -p 1433:1433 -
 ``` 
 
 * sudo docker run 
-  * Execute docker with root permissions
+  * Execute docker with **root** (*administrador*) permissions
 * -e "ACCEPT_EULA=Y"
   * Set the ACCEPT_EULA variable to any value to confirm your acceptance of the End-User Licensing Agreement. Required setting for the SQL Server image.
 * -e "SA_PASSWORD=YOUR_PASSWORD" 
@@ -37,33 +44,32 @@ sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YOUR_PASSWORD" -p 1433:1433 -
   * The SQL Server 2017 Linux container image.
 
 
-# If is necessary change de password:
+## If is necessary change de password:
 
 ```
 sudo docker exec -it sqlserver2017 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "YOUROLDPASSWORD" -Q 'ALTER LOGIN SA WITH PASSWORD="<YourNewStrong@Passw0rd>"'
 ```
 
-# START|STOP SQL SERVER
+## START|STOP SQL SERVER
 
-Use docker start|stop to start or stop the SQL Server instances
+Use the command *docker start|stop* to start or stop the SQL Server instances
 
 ```
 docker start sqlserver2017
 docker stop sqlserver2017
 ```
 
-# Create Alias to start|stop the SQL Server  
+## Create Alias to start|stop the SQL Server  
 
-Add the line alias name='command' to your ``.zshrc`` file or for your default termninal file ``.bashrc`` in your **home folder** or just run the command below, although when you restart your computer, you will **lose** the alias.
+Add the line *alias name='command'* to your ``.zshrc`` file or for your default termninal file ``.bashrc`` in your **home folder** or just run the command below, although when you restart your computer, you will **lose** the alias.
 
 ``` 
 alias SqlServerON='docker start sqlserver2017'
 alias SqlServerOFF='docker stop sqlserver2017'
 ``` 
 
-
-# Connect to sql to run commands inside the docker using **terminal**
-You need to start the container before access or run any command inside it, otherwise 
+## Connect to sql to run commands inside the docker using **terminal**
+You need to start the **container** before access or run any command inside it, otherwise 
 
 ```
 ➜  DockerSqlserver git:(master) ✗ sudo docker exec -it sqlserver2017 "bash"
@@ -76,16 +82,15 @@ After start the container
 sudo docker exec -it sqlserver2017 "bash"
 ``` 
 
-# Access SQL Server inside the docker
+## Access SQL Server inside the docker container
 
 Once you have access to the docker sql server container, you can access the **SQLCMD** (SQL Server command line to execute many commands, like create databases, tables, queries and much more). 
+
 ```
 oot@fe06c3f734a2:/# /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "YOUR_PASSWORD"
 ```
 
-# Your First Query inside the Dockers
-
-Create the database **MY_DB** another one that you think  
+## Your First Query inside the **docker container**
 
 ``` 
 oot@fe06c3f734a2:/# /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "YOUR_PASSWORD"
@@ -105,7 +110,8 @@ master
 1> 
 ``` 
 
-# CREATE YOUR FIRST DATABASE
+## CREATING THE DATABASE
+Create the database **MY_DB** another one that you think is better 
 
 ```
 root@fe06c3f734a2:/# /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "YOUR_PASSWORD"
@@ -119,7 +125,7 @@ Changed database context to 'MY_DB'.
 
 # CONFIGURE USING DOCKER-COMPOSE
 
-1. Create *docker-compose.yml"
+1. Creating the *docker-compose.yml"
 ```
 version: "3.5"
 services: 
@@ -165,7 +171,8 @@ ERROR: for sqlserver2017  Cannot create container for service db: Conflict. The 
 ERROR: for db  Cannot create container for service db: Conflict. The container name "/sqlserver2017" is already in use by container "fe06c3f734a2b11ff56977cfcc2bb971aee547d51c1976c9cd2b327cfde54ec5". You have to remove (or rename) that container to be able to reuse that name.
 ERROR: Encountered errors while bringing up the project.
 ``` 
-if you want to use the same name in your **docker-compose.yml**, to list all containers, you can use the commands (both return the same result):
+
+If you want to use the same name in your **docker-compose.yml**, to list all containers, you can use the commands (both return the same result):
 
 ```
 sudo docker ps -a
@@ -178,13 +185,15 @@ docker container ls -a
  -a, --all             Show all containers (default shows just running)
 `
 <img alt="Docker images" src="imgs/dockercontainerls.png">
+
 ## Remove the containers 
 
-To remove the existents containers and avoid conflicts between the containers created using docker run and docker-compose.yml, first stop the containers with the command:
+To remove the existing containers and avoid conflicts between the containers created using docker run and docker-compose.yml, first stop the containers with the command:
 
 ```
 sudo docker stop sqlserver2017
 ``` 
+
 Now you can remove the container with the command.
 
 ```
@@ -200,7 +209,7 @@ Use the shortcut <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to access the
 1. MSSQL -> Add Connection - click or press <kbd>Enter</kbd>
 <img alt="MSSQL Add Connection" src="imgs/mssqladdconnection_01.png">
 
-2. **Hostname\instance or <server>.database.windows.net or ADO.NET connection string** - The IP or Address of your server. In our case, as we are configuring a local instance of MSSQL, we are going to use *localhost* 
+2. **Hostname\instance or <server>.database.windows.net or ADO.NET connection string** - The IP or Address of your server. In our case, as we are configuring a local instance of MSSQL, we are going to use  the *localhost* 
 <img alt="MSSQL Server" src="imgs/mssqladdconnection_02_server.png">
 
 3. **Authentication Type [SQL Login|Integrated|Azure]** - Select SQL Login for we get to authenticate with the SQL Server password<br>
@@ -209,7 +218,7 @@ Use the shortcut <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to access the
 4. **Password** - Insert the password that you created when you pulled the docker Sql server instance <a id='sqlserverpassword' href="#pull-sql-server-image">Pull SQLServer image</a>. 
 <img alt="MSSQL_Add_Connection" src="imgs/mssqladdconnection_04_password.png">
 
-5. **Save your Password** - In case of you don't want to include the password everytime that you need to use the database
+5. **Save your Password** - In case of you don't want to include the password every time that you need to use the database
 <img alt="MSSQL_Add_Connection" src="imgs/mssqladdconnection_05_savepassword.png">
 
 6. **Profile Name** - To easy access the connection next time
@@ -239,6 +248,9 @@ On Azure Data Studio is even easier to configure your connections with Microsoft
 <img alt="MSSQL_Add_Connection" src="imgs/azure_04_dashboard.png">
 
 # NEXT
+
+## RESTORE DATABASE INSIDE CONTAINER
+Restoring database using a docker container [English Restoring](README.RestoreDB.en.md), [Portuguese Restoring Soon](README.RestoreDB.pt.md)
 
 ## USE SQL SERVER RETURN TABLES RENDERED AS HTML 
 
