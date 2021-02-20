@@ -4,7 +4,7 @@
 ### Uma breve explicação sobre o que é um Docker. 
 Leia em outros idiomas: [English](README.md), [Portuguese](README.pt.md).
 Também
-Restaurando uma base de dados dentro do docker container [English Restoring](README.RestoreDB.en.md), [Portuguese Restoring Soon](README.RestoreDB.pt.md)
+Restaurando uma base de dados dentro do docker container [Versão em Portuguese, Restaurando DB](README.RestoreDB.pt.md), [English Version, Restoring DB](README.RestoreDB.en.md)
 
 Imagine que você trabalhe ou apenas esteja estudando varias technologias diferentes, Meu caso, culpado!!! :) ou o de varios de nós que utilizam `NodeJS`, `React`, `C#`, `Ruby`, `PHP` ou mesmo `Haskell` (Estava testando poucos dias atrás \o/) ou por examplo você só queira rodar alguns comandos em linux no seu Note ou PC sem ter que instalar um [Virutal Box](https://www.virtualbox.org/) ou [VMWare](https://www.vmware.com/).Essas linguagens e suas IDEs *(integrated development environment)*  consomem recursos como HD, Memória, Processador e principalmente **tempo**. *
 
@@ -248,7 +248,7 @@ No Azure Data Studio é ainda mais fácil configurar suas conexões com o Micros
 # NEXT
 
 ## RESTAURAR BASE DE DADOS DENTRO DO CONTAINER
-Restaurando base de dados usando docker container [English Restoring](README.RestoreDB.en.md), [Portuguese Restoring Soon](README.RestoreDB.pt.md)
+Restaurando base de dados usando docker container [Versão em Portuguese, Restaurando DB](README.RestoreDB.pt.md), [English Version, Restoring DB](README.RestoreDB.en.md)
 
 ## USE SQL SERVER RETURN TABLES RENDERED AS HTML 
 
